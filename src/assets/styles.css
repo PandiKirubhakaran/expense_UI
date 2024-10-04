@@ -1,0 +1,29 @@
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .navbarLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbarLink {
+    text-decoration: none;
+    color: inherit;
+    margin-right: 16px;
+  }
+  
+  .navbarTitle {
+    margin-right: 16px;
+  }
+  
+  .navbarRight {
+    display: flex;
+    align-items: center;
+  }
+  
