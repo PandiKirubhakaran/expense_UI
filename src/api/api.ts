@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/'; // Base API URL
+const API_URL = 'https://expense-server-xk53.onrender.com/api/';
+// const API_URL = 'http://localhost:5000/api/'; 
 // Configure axios to send cookies with requests
 axios.defaults.withCredentials = true;
 
@@ -27,7 +28,7 @@ export const loginUser = async (userData: any) => {
 // Fetch expenses for a specific date
 export const fetchExpensesByDate = async (date: string) => {
   try {
-    const response = await axios.get(`http://localhost:5000/api/expenses/${date}`, {
+    const response = await axios.get(`https://expense-server-xk53.onrender.com/api/expenses/${date}`, {
       withCredentials: true, 
     });
     return response.data;

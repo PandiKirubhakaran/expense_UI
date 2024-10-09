@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
   // Fetch dashboard data from the server
   const fetchDashboardData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/dashboard", {
+      const response = await axios.get("https://expense-server-xk53.onrender.com/api/dashboard", {
         params: {
           month: new Date().getMonth() + 1,
           year: new Date().getFullYear(),
@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
   const handleAddCapital = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/capital",
+        "https://expense-server-xk53.onrender.com/api/capital",
         {
           amount: capitalAmount,
           description,
