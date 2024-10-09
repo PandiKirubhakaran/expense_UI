@@ -13,7 +13,7 @@ import {
   Paper,
   Box,
 } from "@mui/material";
-import { Bar, Doughnut } from "react-chartjs-2";
+// import { Bar, Doughnut } from "react-chartjs-2";
 import axios from "axios";
 import {
   Chart as ChartJS,
@@ -128,28 +128,28 @@ const Dashboard: React.FC = () => {
   if (!dashboardData) return <div>Loading...</div>;
 
   // Prepare data for the Bar chart
-  const barData = {
-    labels: Object.keys(dashboardData.dailyExpenses),
-    datasets: [
-      {
-        label: "Daily Expenses",
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(75,192,192,1)",
-        data: Object.values(dashboardData.dailyExpenses),
-      },
-    ],
-  };
+  // const barData = {
+  //   labels: Object.keys(dashboardData.dailyExpenses),
+  //   datasets: [
+  //     {
+  //       label: "Daily Expenses",
+  //       backgroundColor: "rgba(75,192,192,1)",
+  //       borderColor: "rgba(75,192,192,1)",
+  //       data: Object.values(dashboardData.dailyExpenses),
+  //     },
+  //   ],
+  // };
 
-  // Prepare data for the Doughnut chart
-  const doughnutData = {
-    labels: ["Total Capital", "Total Expenses"],
-    datasets: [
-      {
-        backgroundColor: ["#36A2EB", "#FF6384"],
-        data: [dashboardData.totalCapital, dashboardData.totalExpenses],
-      },
-    ],
-  };
+  // // Prepare data for the Doughnut chart
+  // const doughnutData = {
+  //   labels: ["Total Capital", "Total Expenses"],
+  //   datasets: [
+  //     {
+  //       backgroundColor: ["#36A2EB", "#FF6384"],
+  //       data: [dashboardData.totalCapital, dashboardData.totalExpenses],
+  //     },
+  //   ],
+  // };
 
   return (
     <Container>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Tabs, Tab, Typography, Button, TextField, Table, TableBody, TableCell, TableHead, TableRow, Alert } from '@mui/material';
+import { Box, Tabs, Tab, Typography, Button, TextField, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { addExpense, fetchExpensesByDate } from '../api/api';
 
 // Helper functions
@@ -10,20 +10,20 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 const CalendarWithExpenses = () => {
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth());
-  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
+  const [selectedYear] = useState<number>(new Date().getFullYear());
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [expenses, setExpenses] = useState<any[]>([]);
   const [expense, setExpense] = useState<string>(''); // Input for today's expense
   const [description, setDescription] = useState<string>('');
   const [totalExpense, setTotalExpense] = useState<number>(0);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Error message for no expenses
+  const [, setErrorMessage] = useState<string | null>(null); // Error message for no expenses
 
   const today = new Date().getDate();
   const todayMonth = new Date().getMonth();
   const todayYear = new Date().getFullYear();
   const isToday = (date: number) => selectedYear === todayYear && selectedMonth === todayMonth && date === today;
 
-  const handleMonthChange = (event: React.SyntheticEvent, newMonth: number) => {
+  const handleMonthChange = (_event: React.SyntheticEvent, newMonth: number) => {
     setSelectedMonth(newMonth);
     setSelectedDate(null); // Reset the selected date when month changes
     setErrorMessage(null); // Clear error message on month change

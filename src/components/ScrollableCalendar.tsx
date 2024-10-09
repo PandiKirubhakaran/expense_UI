@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -15,7 +15,7 @@ const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1
 
 const ScrollableCalendar = () => {
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth());
-  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
+  const [selectedYear] = useState<number>(new Date().getFullYear());
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const [expenses, setExpenses] = useState<any[]>([]); // List of expenses for the selected day
   const [expense, setExpense] = useState<string>(''); // Input for current day's expense
@@ -26,7 +26,7 @@ const ScrollableCalendar = () => {
   const isToday = (date: number) => selectedYear === new Date().getFullYear() && selectedMonth === new Date().getMonth() && date === today;
 
   // Handling month/year change
-  const handleMonthChange = (event: React.SyntheticEvent, newMonth: number) => {
+  const handleMonthChange = (_event: React.SyntheticEvent, newMonth: number) => {
     setSelectedMonth(newMonth);
     setSelectedDate(null); // Reset the selected date when month is changed
   };

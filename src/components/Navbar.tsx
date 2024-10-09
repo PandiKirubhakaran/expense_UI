@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useThemeContext } from "../theme/ThemeProvider";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
