@@ -187,31 +187,24 @@ const Dashboard: React.FC = () => {
             Total Expenses: {dashboardData.totalExpenses}
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper sx={{ height: "300px" }}>
-            <Bar
-              ref={(el) => {
-                if (barChartRef.current) barChartRef.current.destroy();
-                if (el && el.chartInstance)
-                  barChartRef.current = el.chartInstance;
-              }}
-              data={barData}
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper sx={{ height: "300px" }}>
-            <Doughnut
-              ref={(el) => {
-                if (doughnutChartRef.current)
-                  doughnutChartRef.current.destroy();
-                if (el && el.chartInstance)
-                  doughnutChartRef.current = el.chartInstance;
-              }}
-              data={doughnutData}
-            />
-          </Paper>
-        </Grid>
+        {/* <Grid item xs={12} sm={6}>
+  <Paper sx={{ height: "300px" }}>
+    <Bar
+      ref={barChartRef}  // Directly use the ref
+      data={barData}
+    />
+  </Paper>
+</Grid> */}
+
+{/* <Grid item xs={12} sm={6}>
+  <Paper sx={{ height: "300px" }}>
+    <Doughnut
+      ref={doughnutChartRef}  // Directly use the ref
+      data={doughnutData}
+    />
+  </Paper>
+</Grid> */}
+
         <Grid item xs={12}>
           <Typography variant="h6">Capital Log</Typography>
           <Paper>
