@@ -29,7 +29,9 @@ const LoginPage = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5, p: 2, boxShadow: 3, borderRadius: 2 }}>
+    <Box height={'100vh'}>
+
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5, p: 2, boxShadow: 3, borderRadius: 2,height:"300px" }}>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
@@ -39,12 +41,13 @@ const LoginPage = () => {
           <Form>
             <Field name="email" as={TextField} label="Email" fullWidth margin="normal" />
             <PasswordField/>
-            <Button type="submit" variant="contained" color="primary" disabled={isSubmitting} fullWidth>
+            <Button type="submit" sx={{marginTop:'30px'}} variant="contained" color="primary" disabled={isSubmitting} fullWidth >
               Log In
             </Button>
           </Form>
         )}
       </Formik>
+    </Box>
     </Box>
   );
 };

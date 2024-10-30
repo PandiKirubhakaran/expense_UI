@@ -25,6 +25,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import { API_URL } from "../api/api";
 
 // Register the chart.js components to prevent errors
 ChartJS.register(
@@ -63,7 +64,7 @@ const Dashboard: React.FC = () => {
   // Fetch dashboard data from the server
   const fetchDashboardData = async () => {
     try {
-      const response = await axios.get("https://expense-server-xk53.onrender.com/api/dashboard", {
+      const response = await axios.get( `${API_URL}dashboard`, {
         params: {
           month: new Date().getMonth() + 1,
           year: new Date().getFullYear(),
@@ -80,7 +81,7 @@ const Dashboard: React.FC = () => {
   const handleAddCapital = async () => {
     try {
       const response = await axios.post(
-        "https://expense-server-xk53.onrender.com/api/capital",
+        `${API_URL}capital`,
         {
           amount: capitalAmount,
           description,
