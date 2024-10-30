@@ -20,7 +20,7 @@ const LoginPage = () => {
       const userData = await loginUser(values);
       // console.log(userData,'userData')
       login(userData); 
-      navigate('/')
+      navigate('/dashboard')
     } catch (error) {
       console.error('Login error:', error);
     } finally {
