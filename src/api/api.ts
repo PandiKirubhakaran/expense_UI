@@ -1,10 +1,16 @@
 import axios from 'axios';
 
-// const API_URL = process.env.API_URL
+// Set the base API URL for the backend server
 export const API_URL = 'https://expense-server-xk53.onrender.com/api/';
-// const API_URL = 'http://localhost:5000/api/'; 
-// Configure axios to send cookies with requests
+// For local development, you might switch to: const API_URL = 'http://localhost:5000/api/';
+
+// Configure axios to send cookies with requests, which is necessary for credentials-based CORS
 axios.defaults.withCredentials = true;
+
+// Helper function to extract error messages safely
+const extractErrorMessage = (error: any): string => {
+  return error?.response?.data?.message || error.message || 'An unknown error occurred';
+};
 
 // Sign up a user
 export const signupUser = async (userData: any) => {
@@ -12,7 +18,7 @@ export const signupUser = async (userData: any) => {
     const response = await axios.post(`${API_URL}auth/signup`, userData);
     return response.data;
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Error signing up user');
+    throw new Error(extractErrorMessage(error) || 'Error signing up user');
   }
 };
 
@@ -22,7 +28,7 @@ export const loginUser = async (userData: any) => {
     const response = await axios.post(`${API_URL}auth/login`, userData);
     return response.data;
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Error logging in user');
+    throw new Error(extractErrorMessage(error) || 'Error logging in user');
   }
 };
 
@@ -30,11 +36,11 @@ export const loginUser = async (userData: any) => {
 export const fetchExpensesByDate = async (date: string) => {
   try {
     const response = await axios.get(`${API_URL}expenses/${date}`, {
-      withCredentials: true, 
+      withCredentials: true, // Ensures cookies are sent
     });
     return response.data;
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Error fetching expenses');
+    throw new Error(extractErrorMessage(error) || 'Error fetching expenses');
   }
 };
 
@@ -44,6 +50,6 @@ export const addExpense = async (expenseData: any) => {
     const response = await axios.post(`${API_URL}expenses`, expenseData);
     return response.data;
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Error adding expense');
+    throw new Error(extractErrorMessage(error) || 'Error adding expense');
   }
 };
